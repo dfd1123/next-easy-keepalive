@@ -63,8 +63,6 @@ So, let's see how to use it now.
 
 ## **How to use useKeepAlive Hook**
 
----
-
 Get and Call the useKeepAlive hook on the component you want to keep state. (It doesn't matter if it's a page
 component.)
 
@@ -131,6 +129,11 @@ However, `these key values can be a strength when debugging`.
 
 ![img_1.png](https://user-images.githubusercontent.com/42544793/216341028-7900d703-ba1c-4d13-812f-e5ab4e27db08.png)
 
+You can check what values are currently recorded and how by typing `window.__BACK_HISTORY__` in the console window in the debugging tool.
+
+![img_2.png](https://user-images.githubusercontent.com/42544793/216343863-bda1e399-22bd-4904-97d1-d819fcc3642a.png)
+
+
 In the React component debugging tool, you can trace memState as shown in the image above, but if you want to see the
 history of the previous page or more detailed history, click `keepAlive`. It is more convenient to debug because you can
 know what state the state is from the key value.
@@ -170,8 +173,6 @@ export default function Home() {
 ```
 
 ## **KeepAliveProvider options**
-
----
 
 Options passed as props of KeepAliveProvider can be regarded as global option settings of keepAlive.
 
