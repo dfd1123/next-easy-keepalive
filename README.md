@@ -129,7 +129,7 @@ role as `useState` by calling `useKeepAlive`.
 The downside of useKeepAlive is that you have to specify a key value.
 However, `these key values can be a strength when debugging`.
 
-![](../../스크린샷 2023-02-02 오후 9.16.58.png)
+![img_1.png](https://user-images.githubusercontent.com/42544793/216341028-7900d703-ba1c-4d13-812f-e5ab4e27db08.png)
 
 In the React component debugging tool, you can trace memState as shown in the image above, but if you want to see the
 history of the previous page or more detailed history, click `keepAlive`. It is more convenient to debug because you can
@@ -209,7 +209,7 @@ The option value entered as the second argument of the useKeepAlive hook can be 
 
 ## **Simulation**
 
-![](../../../Downloads/화면_기록_2023-02-02_오후_10_21_10_AdobeExpress.gif)
+![img_2.png](https://user-images.githubusercontent.com/42544793/216341346-df699a46-0ff5-4fbb-8e67-ff10c0af02e1.gif)
 
 ## **Thanks!**
 
