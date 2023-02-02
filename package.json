@@ -58,6 +58,13 @@
       "limit": "10 KB"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dfd1123/next-easy-keepalive"
+  },
+  "bugs": {
+    "url": "https://github.com/dfd1123/next-easy-keepalive/issues"
+  },
   "devDependencies": {
     "@size-limit/preset-small-lib": "8.1.2",
     "@types/lodash": "4.14.191",
