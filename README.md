@@ -96,18 +96,22 @@ export default function Home() {
 
     /**
      * The useNotBackEffect hook is executed on first render only if there is no back.
+     * Like the useEffect hook, the second takes an array of dependencies. 
+     * The hook runs again when the value changes.
      */
     useNotBackEffect(() => {
         console.log('history pop')
         makeList();
-    });
+    }, []);
 
     /**
      * The useBackActive hook is only executed on first render when going back.
+     * Like the useEffect hook, the second takes an array of dependencies.
+     * The hook runs again when the value changes.
      */
     useBackActive(() => {
         console.log('history push')
-    });
+    }, []);
 
     return (
         <main>
@@ -165,7 +169,7 @@ export default function Home() {
 
     useNotBackEffect(() => {
         makeList();
-    });
+    }, []);
 
 ...
 }

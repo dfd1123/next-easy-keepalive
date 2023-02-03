@@ -32,20 +32,20 @@ export const useKeepAlive = (key:string, option?:KeepAliveHookOptions) => {
   };
 
   // useEffect hook that runs only when not going back
-  const useNotBackEffect = (func: Function) => useEffect(() => {
+  const useNotBackEffect = (func: Function, deps: any[] = []) => useEffect(() => {
     const pageCacheData = backContext.backHistory[pathName]?.data || {};
     if (!backContext.isBack || !pageCacheData[key]) {
       func();
     }
-  }, []);
+  }, [...deps]);
 
   // useEffect hook that runs only when going back
-  const useBackActive = (func: Function) => useEffect(() => {
+  const useBackActive = (func: Function, deps: any[] = []) => useEffect(() => {
     const pageCacheData = backContext.backHistory[pathName]?.data || {};
     if (backContext.isBack && pageCacheData[key]) {
       func();
     }
-  }, []);
+  }, [...deps]);
 
   const useMemState = <S>(state: S, keyName: string) => {
     const cacheData = getCacheData();
