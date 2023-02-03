@@ -47,6 +47,8 @@
     "scroll position",
     "NEKA",
     "neka",
+    "뒤로가기",
+    "뒤로가기 유지"
   ],
   "module": "dist/next-easy-keepalive.esm.js",
   "size-limit": [
