@@ -45,7 +45,8 @@
     "back state",
     "back",
     "scroll position",
-    "뒤로가기"
+    "NEKA",
+    "neka",
   ],
   "module": "dist/next-easy-keepalive.esm.js",
   "size-limit": [
