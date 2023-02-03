@@ -1,9 +1,9 @@
 import React, {
   SetStateAction,
   useContext,
-  useEffect,
+  useEffect, useLayoutEffect,
   useRef,
-  useState,
+  useState
 } from 'react';
 import {
   BackHistoryType,
@@ -67,14 +67,16 @@ export const useKeepAlive = (key:string, option?:KeepAliveHookOptions) => {
     return resultRef as React.MutableRefObject<S>;
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (backContext.isBack || alwaysRemember) {
       if (backContext.backHistory[pathName]) {
         const backHistory = backContext.backHistory[pathName] as BackHistoryType;
         if (backHistory.scrollPos > 0) window.scrollTo(0, backHistory.scrollPos);
       }
     }
+  } ,[])
 
+  useEffect(() => {
     return () => {
       if (store) {
         const { state, ref } = tempStore.current;
