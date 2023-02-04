@@ -42,12 +42,15 @@ yarn add next-easy-keepalive
 ```js
 import '@/styles/globals.css';
 import type {AppProps} from 'next/app';
+import {useRouter} from 'next/router';
 import {KeepAliveProvider} from 'next-easy-keepalive'; // import KeepAliveProvider
 
 export default function App({Component, pageProps}: AppProps) {
+  const router = useRouter();
+  
   return (
     // should be wrapped right outside <Component ... />
-    <KeepAliveProvider>
+    <KeepAliveProvider router={router}>
       <Component {...pageProps} />
     </KeepAliveProvider>
   );
