@@ -1,10 +1,14 @@
 import React, { createContext, useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
+// import { usePathname } from 'next/navigation';
 import { BackControlType, BackHistoryType } from '../../types';
 import _debounce from 'lodash/debounce';
+import {AppRouterInstance} from 'next/dist/shared/lib/app-router-context';
+import {NextRouter} from 'next/dist/client/router';
+import {BaseRouter} from 'next/dist/shared/lib/router/router';
 
 interface PropsType {
   children: React.ReactNode;
+  router: BaseRouter | NextRouter | AppRouterInstance;
   alwaysRemember?: boolean;
   maxPage?: number;
 }
@@ -20,9 +24,8 @@ const initialValue: { current: BackControlType, alwaysRemember: boolean, maxPage
 
 export const BackControlContext = createContext(initialValue);
 
-export const KeepAliveProvider = ({ children, alwaysRemember = false, maxPage = 10 }: PropsType) => {
-  const router = useRouter();
-  const { pathname } = router;
+export const KeepAliveProvider = ({ children, router, alwaysRemember = false, maxPage = 10 }: PropsType) => {
+  // const pathname = usePathname();
   const backHistoryStore = useRef(initialValue.current);
   const scrollPos = useRef(0);
 
@@ -54,7 +57,7 @@ export const KeepAliveProvider = ({ children, alwaysRemember = false, maxPage = 
         (backHistoryStore.current.backHistory[pathName] as BackHistoryType).scrollPos = scrollPos.current;
       }
     };
-  }, [pathname]);
+  }, [router]);
 
   return (
     <BackControlContext.Provider value={{ ...backHistoryStore, alwaysRemember, maxPage: maxPage > 17 ? 15 : maxPage }}>
