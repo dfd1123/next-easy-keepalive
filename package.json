@@ -74,6 +74,15 @@
     "@types/lodash": "4.14.191",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "eslint": "8.33.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
     "husky": "8.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -85,6 +94,6 @@
   "dependencies": {
     "lodash": "4.17.21",
     "lodash-es": "4.17.21",
-    "next": "13.1.6"
+    "next": ">=12"
   }
 }

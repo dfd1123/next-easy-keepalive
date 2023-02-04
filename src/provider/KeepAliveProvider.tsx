@@ -2,9 +2,9 @@ import React, { createContext, useEffect, useRef } from 'react';
 // import { usePathname } from 'next/navigation';
 import { BackControlType, BackHistoryType } from '../../types';
 import _debounce from 'lodash/debounce';
-import {AppRouterInstance} from 'next/dist/shared/lib/app-router-context';
-import {NextRouter} from 'next/dist/client/router';
-import {BaseRouter} from 'next/dist/shared/lib/router/router';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context';
+import { NextRouter } from 'next/dist/client/router';
+import { BaseRouter } from 'next/dist/shared/lib/router/router';
 
 interface PropsType {
   children: React.ReactNode;
@@ -60,6 +60,7 @@ export const KeepAliveProvider = ({ children, router, alwaysRemember = false, ma
   }, [router]);
 
   return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <BackControlContext.Provider value={{ ...backHistoryStore, alwaysRemember, maxPage: maxPage > 17 ? 15 : maxPage }}>
       {children}
     </BackControlContext.Provider>

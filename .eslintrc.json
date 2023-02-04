@@ -1,0 +1,76 @@
+{
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb-typescript"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module",
+        "createDefaultProgram": true,
+        "project": "./tsconfig.json"
+    },
+    "ignorePatterns": ["public/imgs/header/index.js"],
+    "rules": {
+        "no-console": "warn",
+        "no-debugger": "warn",
+        "no-alert": "off",
+        "no-empty": "off",
+        "no-await-in-loop": "off",
+        "no-promise-executor-return": "off",
+        "no-restricted-syntax": "off",
+        "max-len": "off",
+        "object-curly-newline": "off",
+        "class-methods-use-this": "off",
+        "arrow-parens": ["error", "as-needed"],
+        "import/extensions": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/no-duplicates": "off",
+        "import/named": "off",
+        "import/export": "off",
+        "import/order": "off",
+        "import/no-cycle": "off",
+        "import/no-relative-packages": "off",
+        "import/no-named-as-default": "off",
+        "import/no-useless-path-segments": "off",
+        "import/no-self-import": "off",
+        "import/prefer-default-export": "off",
+        "@typescript-eslint/lines-between-class-members": [
+            "error", "always", {
+                "exceptAfterSingleLine": true
+            }
+        ],
+        "jsx-a11y/anchor-is-valid": [
+            "error",
+            {
+                "specialLink": ["hrefLeft", "hrefRight"],
+                "aspects": ["invalidHref", "preferButton"]
+            }
+        ],
+        "@typescript-eslint/no-shadow": "off",
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/no-throw-literal": "off",
+        "@typescript-eslint/space-before-function-paren": "off",
+        "@typescript-eslint/no-unused-expressions": ["error", { "allowShortCircuit": true }],
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/require-default-props": "off",
+        "react/function-component-definition": "off",
+        "react/button-has-type": "off",
+        "react/no-array-index-key": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "arrow-body-style": "off",
+        "no-param-reassign": "off"
+    }
+}
