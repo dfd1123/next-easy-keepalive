@@ -1,5 +1,5 @@
 {
-  "version": "0.1.10",
+  "version": "1.1.13",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -21,6 +21,7 @@
     "analyze": "size-limit --why"
   },
   "peerDependencies": {
+    "next": ">=12",
     "react": ">=16"
   },
   "husky": {
