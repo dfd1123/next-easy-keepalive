@@ -26,6 +26,17 @@ export const useKeepAlive = (key:string, option?:KeepAliveHookOptions) => {
     ref: {},
   });
 
+  const onceStore = {
+    stateSize: 0,
+    refSize: 0,
+    getStateKey(key?: string) {
+        return key || `state-${this.stateSize++}`;
+    },
+    getRefKey(key?: string) {
+        return key || `ref-${this.refSize++}`;
+    },
+  };
+
   const getCacheData = () : CacheDataType | undefined => {
     const pageCacheData = backContext.backHistory[pathName]?.data;
     return (backContext.isBack || alwaysRemember) && pageCacheData ? pageCacheData[key] : undefined;
@@ -47,22 +58,26 @@ export const useKeepAlive = (key:string, option?:KeepAliveHookOptions) => {
     }
   }, [...deps]);
 
-  const useMemState = <S>(state: S, keyName: string) => {
+  const useMemState = <S>(state: S, keyName?: string) => {
     const cacheData = getCacheData();
-    const cacheState = cacheData && cacheData.state[keyName];
+    const stateKey = onceStore.getStateKey(keyName);
+
+    const cacheState = cacheData && cacheData.state[stateKey];
     const resultState = useState<typeof state>(cacheState ?? state);
 
-    [tempStore.current.state[keyName]] = resultState;
+    [tempStore.current.state[stateKey]] = resultState;
 
     return resultState as [S, React.Dispatch<SetStateAction<S>>];
   };
 
   const useMemRef = <S>(ref: S, keyName: string) => {
     const cacheData = getCacheData();
-    const cacheRef = cacheData && cacheData.ref[keyName].current;
+    const refKey = onceStore.getRefKey(keyName);
+
+    const cacheRef = cacheData && cacheData.ref[refKey].current;
     const resultRef = useRef<typeof ref>(cacheRef ?? ref);
 
-    tempStore.current.ref[keyName] = resultRef;
+    tempStore.current.ref[refKey] = resultRef;
 
     return resultRef as React.MutableRefObject<S>;
   };
